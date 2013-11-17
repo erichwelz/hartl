@@ -7,8 +7,6 @@ before do
   password: "foobar", password_confirmation: "foobar")
 end
 
-  before { @user = User.new(name: "Example User", email: "user@example.com") }
-
   subject { @user }
 
   it { should respond_to(:name) }
