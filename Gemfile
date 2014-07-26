@@ -7,7 +7,6 @@ gem 'bootstrap-sass', '2.3.2.0'
 gem 'bcrypt-ruby'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'
 end
 
@@ -28,6 +27,7 @@ group :doc do
 end
 
 group :production do
-  gem 'pg', '0.15.1'
   gem 'rails_12factor', '0.0.2'
 end
+
+gem 'pg', '0.15.1'
