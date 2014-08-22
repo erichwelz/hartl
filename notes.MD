@@ -14,3 +14,7 @@ get DRB working/understand DRB (may need to re-read first part of book)
 get tests working effectively within sublime text
 
 
+All of the exercises in Chapter 9!
+
+
+
