@@ -78,6 +78,16 @@ end
             it { should have_title('Sign in') }
           end
 
+          describe "visiting the following page" do
+            before { visit_following_user_path(user) }
+            it { should have_title('Sign in') }
+          end
+
+          describe "visiting the followers page" do
+            before { visit followers_users_path(user) }
+            it { should have_title('Sign in') }
+          end
+
           describe "as a non-admin user" do
             let(:user) { FactoryGirl.create(:user) }
             let(:non_admin) { FactoryGirl.create(:user) }
