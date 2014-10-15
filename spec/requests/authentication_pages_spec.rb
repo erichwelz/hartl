@@ -79,12 +79,12 @@ end
           end
 
           describe "visiting the following page" do
-            before { visit_following_user_path(user) }
+            before { visit following_user_path(user) }
             it { should have_title('Sign in') }
           end
 
           describe "visiting the followers page" do
-            before { visit followers_users_path(user) }
+            before { visit followers_user_path(user) }
             it { should have_title('Sign in') }
           end
 
@@ -104,7 +104,7 @@ end
            describe "in the Relationhips controller" do
             describe "submitting to the create action" do
               before { post relationships_path }
-              specify { expect(reponse).to redirect_to(signin_path) }
+              specify { expect(response).to redirect_to(signin_path) }
               end
 
             describe "submitting to the destroy action" do
