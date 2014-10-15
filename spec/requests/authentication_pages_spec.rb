@@ -88,6 +88,7 @@ end
             it { should have_title('Sign in') }
           end
 
+
           describe "as a non-admin user" do
             let(:user) { FactoryGirl.create(:user) }
             let(:non_admin) { FactoryGirl.create(:user) }
@@ -99,20 +100,31 @@ end
               specify { expect(response).to redirect_to(root_url) }
             end
           end
+
+           describe "in the Relationhips controller" do
+            describe "submitting to the create action" do
+              before { post relationships_path }
+              specify { expect(reponse).to redirect_to(signin_path) }
+              end
+
+            describe "submitting to the destroy action" do
+              before { delete relationship_path(1) }
+              specify { expect(response).to redirect_to(signin_path) }
+            end
+          end
         end
 
-        describe "in the Microposts controller" do
+          describe "in the Microposts controller" do
+            describe "submitting to the create action" do
+              before { post microposts_path }
+              specify { expect(response).to redirect_to(signin_path) }
+            end
 
-          describe "submitting to the create action" do
-            before { post microposts_path }
-            specify { expect(response).to redirect_to(signin_path) }
+            describe "submitting to the destroy action" do
+              before { delete micropost_path(FactoryGirl.create(:micropost)) }
+              specify { expect(response).to redirect_to(signin_path) }
+            end
           end
-
-          describe "submitting to the destroy action" do
-            before { delete micropost_path(FactoryGirl.create(:micropost)) }
-            specify { expect(response).to redirect_to(signin_path) }
-          end
-        end
 
     describe "as wrong user" do
       let(:user) { FactoryGirl.create(:user) }
